@@ -144,9 +144,15 @@ def draw_status():
     global draw
 
     if winner is None:
-        message = XO.upper() + "'s Turn"
+        if XO == 'x':
+            message = "your Turn"
+        else:
+            message = "computer Turn"
     else:
-        message = winner.upper() + " won!"
+        if winner == 'x':
+            message = "You won!"
+        else:
+            message = "computer won!"
     if draw:
         message = 'Game Draw!'
 
@@ -278,8 +284,8 @@ def reset_game():
     time.sleep(2)
     XO = 'x'
     draw = False
-    game_opening()
     winner=None
+    game_opening()
     loop_count = 0
     TTT = [[None]*3,[None]*3,[None]*3]
     
